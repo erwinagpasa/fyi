@@ -15,3 +15,11 @@ then only the `import` changes will be tracked by git, but the filename change i
 As a result, it will work for you locally but it will fail for anyone that clones that repo (including EAS Build that is using `git` to create a shallow clone of the repo to upload project sources to the remote builders).
 
 To resolve issues caused by the case inconsistencies you need to either disable `core.ignorecase` by running `git config core.ignorecase false` or rename problematic files manually using `git mv`.
+
+OR
+
+```
+git rm -r --cached .
+git add .
+git commit -m "Clear Git cache to fix casing and refresh tracked files"
+```
